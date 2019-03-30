@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ESNEXT",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "module": "ESNext",                       /* Specify module code generation: 'none', commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "jsx": "react-native",                    /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    "sourceMap": true,                        /* Generates corresponding '.map' file. */
+
+    /* Strict Type-Checking Options */
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "noImplicitAny": false,                   /* Raise error on expressions and declarations with an implied 'any' type. */
+    "noImplicitReturns": true,                /* Report error when not all code paths in function return a value. */
+    "noFallthroughCasesInSwitch": true,       /* Report errors for fallthrough cases in switch statement. */
+    "noUnusedLocals": true,                   /* Report errors on unused locals. */
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "allowSyntheticDefaultImports": true,     /* Allow default imports kind modules with no default export. This does not affect code emit, just typechecking. */
+
+    /* Experimental Options */
+    "experimentalDecorators": true            /* Enables experimental support for ES7 decorators. */
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

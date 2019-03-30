@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react"
+  ],
+  "rules": {
+    "interface-name": false,
+    "object-literal-sort-keys": false,
+    "no-object-literal-type-assertion": false,
+    "no-empty-interface": false,
+    "no-submodule-imports": false,
+    "no-trailing-whitespace": false,
+    "trailing-comma": false,
+    "variable-name": [
+      true,
+      "ban-keywords"
+    ],
+    "max-classes-per-file": [
+      false
+    ],
+    "prefer-object-spread": false,
+    "ordered-imports": false,
+    "quotemark": [],
+    "member-ordering": false,
+    "no-console": false,
+    "max-line-length": false
+  }
+}

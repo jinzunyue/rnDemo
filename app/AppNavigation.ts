@@ -47,11 +47,17 @@ const TabContainer: NavigationContainer = createBottomTabNavigator(
 
 const App: NavigationContainer = createStackNavigator(
     {
-        Main: TabContainer,
+        Main: {
+            screen: TabContainer,
+            navigationOptions: {
+
+            },
+        },
         Setting: SettingScreen
     },
     {
-        headerMode: "none"
+        headerMode: "none",
+        mode: "modal",
     }
 );
 

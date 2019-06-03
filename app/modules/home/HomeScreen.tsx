@@ -1,13 +1,14 @@
 // import {Component} from 'react';
 import * as React from "react";
 import {HomeProp, HomeState} from "./HomeModel";
-import {View, Text} from "react-native";
+import {View} from "react-native";
+import {WebView} from "react-native-webview";
+
+export const HomeContext: React.Context<number> = React.createContext(5);
 
 export default class HomeScreen extends React.Component<HomeProp, HomeState> {
 
-    static defaultProps = {
-        name: "11"
-    };
+    public static contextType: React.Context<number> = HomeContext;
 
     constructor(props: Readonly<HomeProp>) {
         super(props);
@@ -18,14 +19,13 @@ export default class HomeScreen extends React.Component<HomeProp, HomeState> {
         console.log("componentWillMount");
     }
 
-    public componentDidMount(): void {
-        console.log("componentDidMount");
-    }
-
     public render(): React.ReactNode {
         return (
-            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                <Text>我是 Home</Text>
+            <View style={{flex: 1, justifyContent: "center", alignItems: "center", overflow: "hidden"}}>
+                <WebView
+                    source={{uri: "https://statics.dapp365.io/appIndex?lang=zn&source=eos"}}
+                    style={{flex: 1, width: 320, height: 640}}
+                />
             </View>
         );
     }

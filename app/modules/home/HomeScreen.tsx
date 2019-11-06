@@ -1,8 +1,7 @@
-// import {Component} from 'react';
 import * as React from "react";
 import {HomeProp, HomeState} from "./HomeModel";
-import {View} from "react-native";
-import {WebView} from "react-native-webview";
+import {View, Text, TouchableOpacity} from "react-native";
+import {Bind} from "../../framework/utils/Annotations";
 
 export const HomeContext: React.Context<number> = React.createContext(5);
 
@@ -17,16 +16,25 @@ export default class HomeScreen extends React.Component<HomeProp, HomeState> {
 
     public componentWillMount(): void {
         console.log("componentWillMount");
+
+        ErrorUtils.setGlobalHandler(((error, isFatal) => alert("我错了" + error.name)));
     }
 
+    @Bind
     public render(): React.ReactNode {
         return (
             <View style={{flex: 1, justifyContent: "center", alignItems: "center", overflow: "hidden"}}>
-                <WebView
-                    source={{uri: "https://statics.dapp365.io/appIndex?lang=zn&source=eos"}}
-                    style={{flex: 1, width: 320, height: 640}}
-                />
+                <TouchableOpacity
+                    onPress={this.goAnimatedScreen}
+                >
+                    <Text>Go animated screen</Text>
+                </TouchableOpacity>
             </View>
         );
+    }
+
+    @Bind
+    public goAnimatedScreen(): void {
+        this.props.navigation.navigate("Animated");
     }
 }

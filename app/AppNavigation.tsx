@@ -7,6 +7,8 @@ import {
 import HomeScreen from "./modules/home/HomeScreen";
 import SettingScreen from "./modules/SettingScreen/SettingScreen";
 import MyScreen from "./modules/my/MyScreen";
+import DetailScreen from "./modules/detail/DetailScreen";
+import {SimpleAnimatedScreen} from "./modules/animated/SimpleAnimatedScreen";
 
 const TabContainer: NavigationContainer = createBottomTabNavigator(
     {
@@ -16,7 +18,7 @@ const TabContainer: NavigationContainer = createBottomTabNavigator(
                 console.log("路由：" + JSON.stringify(navigation));
                 return (
                     {
-                        title: "首页"
+                        title: "首页",
                     }
                 );
             }
@@ -27,7 +29,7 @@ const TabContainer: NavigationContainer = createBottomTabNavigator(
                 console.log("路由：" + JSON.stringify(navigation));
                 return (
                     {
-                        title: "我的"
+                        title: "我的",
                     }
                 );
             }
@@ -43,17 +45,20 @@ const TabContainer: NavigationContainer = createBottomTabNavigator(
             inactiveTintColor: "black", // label和icon的前景色 活跃状态下（未选中）
         }
     }
+
 );
 
 const App: NavigationContainer = createStackNavigator(
     {
+        Animated: SimpleAnimatedScreen,
         Main: {
             screen: TabContainer,
             navigationOptions: {
 
             },
         },
-        Setting: SettingScreen
+        Setting: SettingScreen,
+        Detail: DetailScreen
     },
     {
         headerMode: "none",

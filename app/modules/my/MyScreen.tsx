@@ -1,11 +1,12 @@
 // import {Component} from 'react';
 import * as React from "react";
 import {MyProp, MyState} from "./MyModel";
-import {View, Text, TouchableOpacity} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import {Bind} from "../../framework/utils/Annotations";
 
 export default class MyScreen extends React.Component<MyProp, MyState> {
 
+    private a: number = 1;
     public constructor(props: Readonly<MyProp>) {
         super(props);
         console.log("constructor");
@@ -20,8 +21,13 @@ export default class MyScreen extends React.Component<MyProp, MyState> {
     }
 
     @Bind
+    public toDetail(): void {
+        this.props.navigation.navigate("Detail", {a: this.a++});
+    }
+
+    @Bind
     public toSetting(): void {
-        this.props.navigation.navigate("Setting");
+        this.props.navigation.navigate("Setting", {a: this.a++});
     }
 
     @Bind
@@ -32,6 +38,11 @@ export default class MyScreen extends React.Component<MyProp, MyState> {
                     onPress={this.toSetting}
                 >
                     <Text>设置</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={this.toDetail}
+                >
+                    <Text>详情</Text>
                 </TouchableOpacity>
             </View>
         );
